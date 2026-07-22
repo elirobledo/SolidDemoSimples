@@ -8,6 +8,11 @@ using System.Threading.Tasks;
 
 namespace SolidDemo.Services
 {
+    /// <summary>
+    /// Dependency Inversion Principle
+    /// 
+    /// OrderService It depends on abstractions, not concrete implementations.
+    /// </summary>
     public class OrderService
     {
         private readonly IRepository repository;
@@ -17,7 +22,7 @@ namespace SolidDemo.Services
 
         public OrderService(
             IRepository repository,
-            IMessageService messageService,
+            IMessageService messageService,///not EmailService email = new EmailService();
             IDiscount discount,
             IReport report)
         {
@@ -29,6 +34,12 @@ namespace SolidDemo.Services
 
         public void Process(Order order)
         {
+            ///
+            /// Liskov Substitution Principle
+            ///
+            /// All discounts can be replaced without breaking the system
+            /// Example: No discount, Premium discount, Regular discount
+
             order.Total = discount.Apply(order.Total);
 
             repository.Save(order);

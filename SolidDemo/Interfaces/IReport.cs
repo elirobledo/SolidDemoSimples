@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace SolidDemo.Interfaces
 {
+    /// <summary>
+    /// Interface Segregation Principle
+    /// </summary>
     public interface IReport
     {
         void Generate(Order order);

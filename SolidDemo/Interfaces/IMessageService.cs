@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace SolidDemo.Interfaces
 {
+    /// <summary>
+    /// Interface Segregation Principle
+    /// </summary>
     public interface IMessageService
     {
         void Send(string customer, string message);
